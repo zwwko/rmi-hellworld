@@ -5,9 +5,20 @@
         http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
     <!-- 客户端 -->
-    <bean id="helloWorld"  class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+    <bean id="helloWorld" lazy-init="true" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
         <property name="serviceInterface" value="spring.rmi.IHelloWorld"></property>
         <property name="serviceUrl" value="rmi://127.0.0.1:8088/helloWorld"></property>
     </bean>
 
+    <!-- 客户端 -->
+    <bean id="urpService"  class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceInterface" value="com.hesc.urp.service.UrpService"></property>
+        <property name="serviceUrl" value="rmi://172.17.0.1:1199/UrpService"></property>
+    </bean>
+    <!-- 客户端 -->
+    <bean id="roleService"  class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceInterface" value="com.hesc.urp.service.RoleService"></property>
+        <property name="serviceUrl" value="rmi://172.17.0.1:1199/RoleService"></property>
+    </bean>
 </beans>
+
