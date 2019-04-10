@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="helloWorld" class="spring.rmi.HelloWorld"/>
+
+    <bean id="serviceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="service" ref="helloWorld"/>
+        <!--定义服务名-->
+        <property name="serviceName" value="helloWorld"/>
+        <property name="serviceInterface" value="spring.rmi.IHelloWorld"/>
+        <property name="registryPort" value="8088"/>
+    </bean>
+</beans>
